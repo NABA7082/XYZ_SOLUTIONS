@@ -14,6 +14,8 @@ const validate_error = require("./middleware/error_middleware");
 //   methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
 //   credentials: true,
 // };
+
+const port = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 app.use("/api", authRouter);
@@ -23,7 +25,7 @@ app.use("/api", getAllUsers);
 
 app.use(validate_error);
 db().then(() => {
-  app.listen(3001, () => {
+  app.listen(port, () => {
     console.log("server is running");
   });
 });
