@@ -5,7 +5,8 @@ const service_f = async (req, res) => {
     const service = await service_s.find();
     res.status(200).json({ message: service });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 module.exports = service_f;
